@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DeclarativeUI_Example' do
+  pod 'DeclarativeUI', :path => '../'
+
+  target 'DeclarativeUI_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
