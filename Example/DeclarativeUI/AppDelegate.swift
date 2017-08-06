@@ -31,21 +31,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let viewModel = ViewModel()
-        let elements: [ContentElement] = [
-            .label(ofType: .title1, text: "Hello World!", alignment: .center, keyPath: \ViewModel.title),
-            .verticalSpace(20),
-            .label(ofType: .body, text: "This is the body text!", alignment: .justified),
-            .textField(withPlaceholder: "Username"),
-            .textField(withPlaceholder: "Password"),
-            .flexibleSpace,
-            .button(ofType: .primary, withTitle: "Login", events:
-                .onTap(viewModel.tappedLogin),
-                .onEnable(\ViewModel.buttonEnabled)),
-        ]
+//        let viewModel = ViewModel()
+//        let elements: [ContentElement] = [
+//            .label(ofType: .title1, text: "Hello World!", alignment: .center, keyPath: \ViewModel.title),
+//            .verticalSpace(20),
+//            .label(ofType: .body, text: "This is the body text!", alignment: .justified),
+//            .textField(withPlaceholder: "Username"),
+//            .textField(withPlaceholder: "Password"),
+//            .flexibleSpace,
+//            .button(ofType: .primary, withTitle: "Login", events:
+//                .onTap(viewModel.tappedLogin),
+//                .onEnable(\ViewModel.buttonEnabled)),
+//        ]
         
-        let viewController = UIViewController(viewModel: viewModel, elements: elements)
-        window?.rootViewController = UINavigationController(rootViewController: viewController)
+//        let viewController = UIViewController(viewModel: viewModel, elements: elements)
+        
+        window?.rootViewController = Navigator.shared.navigationController
+        Navigator.shared.navigate(toViewController: Storyboard.main)
         return true
     }
 

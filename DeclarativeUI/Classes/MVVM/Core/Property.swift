@@ -5,19 +5,19 @@
 //  Created by Justin Guedes on 2017/08/06.
 //
 
-public typealias Property<A> = ImplicitlyUnwrappedOptional<_Property<A>>
+public typealias Property<T> = ImplicitlyUnwrappedOptional<_Property<T>>
 
-public struct _Property<A> {
+public struct _Property<T> {
     
-    private let get: () -> A
-    private let set: (A) -> ()
+    private let get: () -> T
+    private let set: (T) -> ()
     
-    internal init(get: @escaping () -> A, set: @escaping (A) -> ()) {
+    internal init(get: @escaping () -> T, set: @escaping (T) -> ()) {
         self.get = get
         self.set = set
     }
     
-    public var value: A {
+    public var value: T {
         get { return get() }
         set { set(newValue) }
     }

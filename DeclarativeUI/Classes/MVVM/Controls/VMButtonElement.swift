@@ -10,14 +10,14 @@ import UIKit
 public extension ContentElement {
     
     enum ButtonEvent<A> {
-        case onTap(() -> Void)
+        case onTap((A) -> () -> Void)
         case onEnable(WritableKeyPath<A, Property<Bool>>)
         
         internal func disposable(from viewModel: A, for button: UIButton) -> Disposable? {
             var instance = viewModel
             switch self {
             case let .onTap(event):
-                let action = ButtonAction(onTap: event)
+                let action = ButtonAction(onTap: event(viewModel))
                 button.addTarget(action, action: #selector(ButtonAction.buttonTapped(_:)), for: .touchUpInside)
                 return action
             case let .onEnable(keyPath):
