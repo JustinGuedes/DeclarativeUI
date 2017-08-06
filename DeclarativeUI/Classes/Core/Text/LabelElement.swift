@@ -15,7 +15,7 @@ public extension ContentElement {
             label.font = .preferredFont(forTextStyle: type)
             label.text = text
             label.textAlignment = alignment
-            return (label, .none)
+            return (label, [])
         }
     }
     

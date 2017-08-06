@@ -11,7 +11,7 @@ public extension ContentElement {
     
     static func validation(for element: ContentElement, with rules: [ValidationRule]) -> ContentElement {
         return ContentElement {
-            return (UIView(), .none)
+            return (UIView(), [])
         }
     }
     

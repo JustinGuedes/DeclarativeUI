@@ -16,7 +16,7 @@ public extension ContentElement {
             stackView.axis = axis
             stackView.alignment = alignment
             stackView.distribution = distribution
-            return (stackView, .none)
+            return (stackView, [])
         }
     }
     

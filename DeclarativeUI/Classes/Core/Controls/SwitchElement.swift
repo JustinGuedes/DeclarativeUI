@@ -11,7 +11,7 @@ public extension ContentElement {
     
     static func `switch`() -> ContentElement {
         return ContentElement {
-            return (UIView(), .none)
+            return (UIView(), [])
         }
     }
     

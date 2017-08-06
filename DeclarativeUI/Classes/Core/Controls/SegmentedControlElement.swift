@@ -11,7 +11,7 @@ public extension ContentElement {
     
     static func segmentedControl() -> ContentElement {
         return ContentElement {
-            return (UIView(), .none)
+            return (UIView(), [])
         }
     }
     

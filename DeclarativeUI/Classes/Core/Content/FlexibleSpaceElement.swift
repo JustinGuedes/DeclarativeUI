@@ -14,7 +14,7 @@ public extension ContentElement {
             let space = UIView()
             space.setContentHuggingPriority(0, for: .vertical)
             space.setContentHuggingPriority(0, for: .horizontal)
-            return (space, .none)
+            return (space, [])
         }
     }
     

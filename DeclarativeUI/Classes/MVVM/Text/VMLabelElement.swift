@@ -16,7 +16,7 @@ public extension ContentElement {
             label.textAlignment = alignment
             var instance = viewModel as? A
             instance?[keyPath: keyPath] = property
-            return (label, .none)
+            return (label, [])
         }
     }
     

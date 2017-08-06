@@ -11,7 +11,7 @@ public extension ContentElement {
     
     static func textView() -> ContentElement {
         return ContentElement {
-            return (UIView(), .none)
+            return (UIView(), [])
         }
     }
     

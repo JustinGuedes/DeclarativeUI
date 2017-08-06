@@ -11,13 +11,13 @@ public struct ContentElement {
     
     public typealias Disposable = Any
     
-    internal let _render: (Any...) -> (UIView, Disposable?)
+    internal let _render: (Any...) -> (UIView, [Disposable])
     
-    internal init(render: @escaping () -> (UIView, Disposable?)) {
+    internal init(render: @escaping () -> (UIView, [Disposable])) {
         self._render = { _ in render() }
     }
     
-    public func render() -> (UIView, Disposable?) {
+    public func render() -> (UIView, [Disposable]) {
         return _render()
     }
     

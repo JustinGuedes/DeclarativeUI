@@ -14,7 +14,7 @@ public extension ContentElement {
             let textField = UITextField()
             textField.borderStyle = .roundedRect
             textField.placeholder = placeholder
-            return (textField, .none)
+            return (textField, [])
         }
     }
     

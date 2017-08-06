@@ -15,7 +15,7 @@ public extension ContentElement {
             let space = UIView()
             space.translatesAutoresizingMaskIntoConstraints = false
             space.heightAnchor.constraint(equalToConstant: constant).isActive = true
-            return (space, .none)
+            return (space, [])
         }
     }
     
@@ -24,7 +24,7 @@ public extension ContentElement {
             let space = UIView()
             space.translatesAutoresizingMaskIntoConstraints = false
             space.widthAnchor.constraint(equalToConstant: constant).isActive = true
-            return (space, .none)
+            return (space, [])
         }
     }
     

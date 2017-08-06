@@ -7,11 +7,11 @@
 
 public extension ContentElement {
     
-    internal init(render: @escaping (Any) -> (UIView, Disposable?)) {
+    internal init(render: @escaping (Any) -> (UIView, [Disposable])) {
         self._render = { (args: Any...) in render(args[0]) }
     }
     
-    public func render(_ viewModel: Any) -> (UIView, Disposable?) {
+    public func render(_ viewModel: Any) -> (UIView, [Disposable]) {
         return _render(viewModel)
     }
     

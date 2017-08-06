@@ -11,13 +11,13 @@ public extension ContentElement {
     
     internal class ButtonAction {
         
-        let onTap: () -> ()
-        init (onTap: @escaping () -> ()) {
+        let onTap: (() -> Void)?
+        init(onTap: (() -> Void)?) {
             self.onTap = onTap
         }
         
         @objc func buttonTapped(_ sender: AnyObject) {
-            onTap()
+            onTap?()
         }
         
     }
@@ -50,7 +50,7 @@ public extension ContentElement {
             let button = type.createButton()
             button.setTitle(title, for: .normal)
             button.addTarget(action, action: #selector(ButtonAction.buttonTapped(_:)), for: .touchUpInside)
-            return (button, action)
+            return (button, [action])
         }
     }
     

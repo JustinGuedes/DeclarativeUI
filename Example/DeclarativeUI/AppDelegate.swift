@@ -17,9 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     class ViewModel {
         
         var title: Property<String?>
+        var buttonEnabled: Property<Bool>
         
-        func tappedLogin() {
+        public func tappedLogin() {
             title.value = "Tapped Login"
+            buttonEnabled.value = false
         }
         
         deinit {
@@ -37,7 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .textField(withPlaceholder: "Username"),
             .textField(withPlaceholder: "Password"),
             .flexibleSpace,
-            .button(ofType: .primary, withTitle: "Login", onTap: viewModel.tappedLogin)
+            .button(ofType: .primary, withTitle: "Login", events:
+                .onTap(viewModel.tappedLogin),
+                .onEnable(\ViewModel.buttonEnabled)),
         ]
         
         let viewController = UIViewController(viewModel: viewModel, elements: elements)
