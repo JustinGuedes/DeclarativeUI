@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'DeclarativeUI_Example' do
-  pod 'DeclarativeUI', :path => '../'
+  pod 'DeclarativeUI/All', :path => '../'
 
   target 'DeclarativeUI_Tests' do
     inherit! :search_paths

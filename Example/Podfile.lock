@@ -1,0 +1,23 @@
+PODS:
+  - DeclarativeUI/All (0.1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - DeclarativeUI/All (from `../`)
+  - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  DeclarativeUI:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DeclarativeUI: 75918abdbad677469d4773c267cd129f7b6a495b
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+
+PODFILE CHECKSUM: 3ea0fb72b75275ee5cf7cdf9dfd6a3568ccb2aaf
+
+COCOAPODS: 1.2.1
