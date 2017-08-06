@@ -7,18 +7,24 @@
 
 import UIKit
 
-public struct ContentElement {
+public typealias AnyContentElement = ContentElement<Void>
+
+public struct ContentElement<T> {
     
     public typealias Disposable = Any
     
-    internal let _render: (Any...) -> (UIView, [Disposable])
+    private let _render: (T) -> (UIView, [Disposable])
     
     internal init(render: @escaping () -> (UIView, [Disposable])) {
         self._render = { _ in render() }
     }
     
-    public func render() -> (UIView, [Disposable]) {
-        return _render()
+    internal init(render: @escaping (T) -> (UIView, [Disposable])) {
+        self._render = render
+    }
+    
+    public func render(_ viewModel: T) -> (UIView, [Disposable]) {
+        return _render(viewModel)
     }
     
 }

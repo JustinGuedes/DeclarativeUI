@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 9.0, *)
 public extension UIStackView {
     
-    convenience init(elements: [ContentElement]) {
+    convenience init(elements: [AnyContentElement]) {
         let renders = elements.map { $0.render() }
         let views = renders.flatMap { $0.0 }
         let disposables = renders.flatMap { $0.1 }
@@ -18,8 +18,20 @@ public extension UIStackView {
         self.__disposables = disposables
     }
     
-    convenience init(elements: ContentElement...) {
+    convenience init(elements: AnyContentElement...) {
         self.init(elements: elements)
+    }
+    
+    convenience init<T>(with viewModel: T, elements: [ContentElement<T>]) {
+        let renders = elements.map { $0.render(viewModel) }
+        let views = renders.map { $0.0 }
+        let disposables = renders.map { $0.1 }
+        self.init(arrangedSubviews: views)
+        self.__disposables = disposables
+    }
+    
+    convenience init<T>(with viewModel: T, elements: ContentElement<T>...) {
+        self.init(with: viewModel, elements: elements)
     }
     
 }

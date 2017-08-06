@@ -11,13 +11,13 @@ public extension ContentElement {
     
     internal class ButtonAction {
         
-        let onTap: (() -> Void)?
-        init(onTap: (() -> Void)?) {
+        let onTap: () -> Void
+        init(onTap: @escaping () -> Void) {
             self.onTap = onTap
         }
         
         @objc func buttonTapped(_ sender: AnyObject) {
-            onTap?()
+            onTap()
         }
         
     }
@@ -44,6 +44,26 @@ public extension ContentElement {
         }
     }
     
+    enum ButtonEvent<A> {
+        case onTap(() -> Void)
+        case onEnable(WritableKeyPath<T, Property<Bool>>)
+        
+        internal func disposable(from viewModel: T, for button: UIButton) -> Disposable? {
+            var instance = viewModel
+            switch self {
+            case let .onTap(event):
+                let action = ButtonAction(onTap: event)
+                button.addTarget(action, action: #selector(ButtonAction.buttonTapped(_:)), for: .touchUpInside)
+                return action
+            case let .onEnable(keyPath):
+                let property = _Property(get: { return button.isEnabled }, set: { newValue in button.isEnabled = newValue })
+                instance[keyPath: keyPath] = property
+            }
+            
+            return .none
+        }
+    }
+    
     static func button(ofType type: ButtonType, withTitle title: String, onTap: @escaping () -> ()) -> ContentElement {
         return ContentElement {
             let action = ButtonAction(onTap: onTap)
@@ -51,6 +71,19 @@ public extension ContentElement {
             button.setTitle(title, for: .normal)
             button.addTarget(action, action: #selector(ButtonAction.buttonTapped(_:)), for: .touchUpInside)
             return (button, [action])
+        }
+    }
+    
+    static func button(ofType type: ButtonType, withTitle title: String, events: ButtonEvent<T>...) -> ContentElement {
+        return ContentElement { (viewModel: T) in
+            let button = type.createButton()
+            button.setTitle(title, for: .normal)
+            let disposables: [Disposable] = events.flatMap { event in
+                guard let disposable = event.disposable(from: viewModel, for: button) else { return .none }
+                return disposable
+            }
+            
+            return (button, disposables)
         }
     }
     
