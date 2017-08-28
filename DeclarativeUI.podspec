@@ -11,7 +11,7 @@ TODO: Add long description of the pod here.
   s.author           = { 'JustinGuedes' => 'justin.guedes@gmail.com' }
   s.source           = { :git => 'https://github.com/JustinGuedes/DeclarativeUI.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.frameworks = 'UIKit'
   s.default_subspec = 'Core'
 
@@ -23,9 +23,9 @@ TODO: Add long description of the pod here.
     sp.source_files = 'DeclarativeUI/Classes/Core/**/*'
   end
 
-  s.subspec 'MVVM' do |sp|
+  s.subspec 'Binding' do |sp|
     sp.dependency 'DeclarativeUI/Core'
-    sp.source_files = 'DeclarativeUI/Classes/MVVM/**/*'
+    sp.source_files = 'DeclarativeUI/Classes/Binding/**/*'
   end
 
   s.subspec 'Validation' do |sp|

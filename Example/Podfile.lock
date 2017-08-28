@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DeclarativeUI: 75918abdbad677469d4773c267cd129f7b6a495b
+  DeclarativeUI: a7a2c858b01bcf7beb7451f3297e695dfe074b46
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
 
 PODFILE CHECKSUM: 3ea0fb72b75275ee5cf7cdf9dfd6a3568ccb2aaf

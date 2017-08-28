@@ -9,9 +9,12 @@ import UIKit
 
 public extension ContentElement {
     
-    static func scrollView() -> ContentElement {
-        return ContentElement {
-            return (UIView(), [])
+    static func scrollView(containing element: ContentElement) -> ContentElement {
+        return ContentElement { (arg: T?) in
+            let scrollView = UIScrollView()
+            let (view, disposables) = element.render(arg)
+            scrollView.addSubview(view)
+            return (scrollView, disposables)
         }
     }
     

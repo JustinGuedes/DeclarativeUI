@@ -6,16 +6,23 @@
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import DeclarativeUI
 
 class DemoViewModel {
     
-    func demoLabelsTapped() {
-        
-    }
-    
-    func demoTextFieldsTapped() {
-        
+    func tablesButtonTapped() {
+        let tableViewController = UITableViewController(withStyle: .plain, items: ["example1", "example2", "example3"], forCell: { (item: String) in
+            return AnyContentElement.label(ofStyle: .title, text: item, alignment: .center)
+        })
+        tableViewController.title = "Test"
+        if #available(iOS 11.0, *) {
+            tableViewController.navigationItem.largeTitleDisplayMode = .always
+        } else {
+            // Fallback on earlier versions
+        }
+        Navigator.shared.navigationController.pushViewController(tableViewController, animated: true)
+//        Navigator.shared.navigate(toViewController: Storyboard.basicTable(items: ))
     }
     
 }

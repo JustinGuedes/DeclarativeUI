@@ -9,9 +9,18 @@ import UIKit
 
 public extension ContentElement {
     
-    static func image() -> ContentElement {
+    static func image(named image: String) -> ContentElement {
         return ContentElement {
-            return (UIView(), [])
+            let image = UIImage(named: image)
+            let imageView = UIImageView(image: image)
+            return (imageView, [])
+        }
+    }
+    
+    static func image(_ image: UIImage?, highlightedImage: UIImage?) -> ContentElement {
+        return ContentElement {
+            let imageView = UIImageView(image: image, highlightedImage: highlightedImage)
+            return (imageView, [])
         }
     }
     

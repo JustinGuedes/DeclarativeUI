@@ -17,11 +17,22 @@ struct Navigator {
     
     private init() {
         navigationController = UINavigationController()
+        if #available(iOS 11.0, *) {
+            navigationController.navigationBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
-    func navigate(toViewController view: () -> (Any, [ContentElement])) {
-        let (viewModel, elements) = view()
-        let viewController = ViewController(viewModel: viewModel, elements: elements)
+    func navigate<T>(toViewController view: () -> (T, ContentElement<T>)) {
+        let (viewModel, element): (T, ContentElement<T>) = view()
+        let viewController = ViewController(viewModel: viewModel, element: element)
+        if #available(iOS 11.0, *) {
+            viewController.navigationItem.largeTitleDisplayMode = .always
+        } else {
+            // Fallback on earlier versions
+        }
+        viewController.title = "Example"
         navigationController.pushViewController(viewController, animated: true)
     }
     

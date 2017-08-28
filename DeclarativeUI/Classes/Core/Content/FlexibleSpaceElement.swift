@@ -12,8 +12,8 @@ public extension ContentElement {
     static var flexibleSpace: ContentElement {
         return ContentElement {
             let space = UIView()
-            space.setContentHuggingPriority(0, for: .vertical)
-            space.setContentHuggingPriority(0, for: .horizontal)
+            space.setContentHuggingPriority(UILayoutPriority(0), for: .vertical)
+            space.setContentHuggingPriority(UILayoutPriority(0), for: .horizontal)
             return (space, [])
         }
     }

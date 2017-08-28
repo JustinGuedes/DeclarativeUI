@@ -17,6 +17,9 @@
 		8C4EBE081F3765B400DBF313 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4EBE071F3765B400DBF313 /* MainViewModel.swift */; };
 		8C4EBE0A1F37695000DBF313 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4EBE091F37695000DBF313 /* Navigator.swift */; };
 		8C4EBE0C1F376CD700DBF313 /* DemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4EBE0B1F376CD700DBF313 /* DemoViewModel.swift */; };
+		8C5E78231F40BF83005DC30F /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E78221F40BF83005DC30F /* ButtonStyles.swift */; };
+		8C7233241F52019F00EEC1C0 /* BasicTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7233231F52019F00EEC1C0 /* BasicTableViewModel.swift */; };
+		8C99E7831F40CEEA00E027B2 /* LabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C99E7821F40CEEA00E027B2 /* LabelStyles.swift */; };
 		C51AF9B9E371BC621D0BE98C /* Pods_DeclarativeUI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30DA6A3A64C72E680F44CC9 /* Pods_DeclarativeUI_Example.framework */; };
 		E3CD53F8240D6308175D3B81 /* Pods_DeclarativeUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3689ABE8935BAA8AEDDE916 /* Pods_DeclarativeUI_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -49,6 +52,9 @@
 		8C4EBE071F3765B400DBF313 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8C4EBE091F37695000DBF313 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		8C4EBE0B1F376CD700DBF313 /* DemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewModel.swift; sourceTree = "<group>"; };
+		8C5E78221F40BF83005DC30F /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		8C7233231F52019F00EEC1C0 /* BasicTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewModel.swift; sourceTree = "<group>"; };
+		8C99E7821F40CEEA00E027B2 /* LabelStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyles.swift; sourceTree = "<group>"; };
 		9B7C8080C7F2FF1BC8206D18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A30DA6A3A64C72E680F44CC9 /* Pods_DeclarativeUI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeclarativeUI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3689ABE8935BAA8AEDDE916 /* Pods_DeclarativeUI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeclarativeUI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,8 @@
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				8C4EBE041F3762F900DBF313 /* Storyboard.swift */,
 				8C4EBE091F37695000DBF313 /* Navigator.swift */,
+				8C5E78221F40BF83005DC30F /* ButtonStyles.swift */,
+				8C99E7821F40CEEA00E027B2 /* LabelStyles.swift */,
 			);
 			name = "Example for DeclarativeUI";
 			path = DeclarativeUI;
@@ -166,6 +174,7 @@
 			children = (
 				8C4EBE071F3765B400DBF313 /* MainViewModel.swift */,
 				8C4EBE0B1F376CD700DBF313 /* DemoViewModel.swift */,
+				8C7233231F52019F00EEC1C0 /* BasicTableViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -382,10 +391,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C99E7831F40CEEA00E027B2 /* LabelStyles.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8C4EBE0C1F376CD700DBF313 /* DemoViewModel.swift in Sources */,
 				8C4EBE0A1F37695000DBF313 /* Navigator.swift in Sources */,
+				8C7233241F52019F00EEC1C0 /* BasicTableViewModel.swift in Sources */,
 				8C4EBE051F3762F900DBF313 /* Storyboard.swift in Sources */,
+				8C5E78231F40BF83005DC30F /* ButtonStyles.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8C4EBE081F3765B400DBF313 /* MainViewModel.swift in Sources */,
 			);
@@ -473,6 +485,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -512,6 +525,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -527,7 +541,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -542,7 +556,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -562,7 +576,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -578,7 +592,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -9,10 +9,9 @@ import UIKit
 
 public extension ContentElement {
     
-    static func label(ofType type: UIFontTextStyle, text: String, alignment: NSTextAlignment = .left) -> ContentElement {
+    static func label(ofStyle style: Style<UILabel>, text: String, alignment: NSTextAlignment = .left) -> ContentElement {
         return ContentElement {
-            let label = UILabel()
-            label.font = .preferredFont(forTextStyle: type)
+            let label = style.create()
             label.text = text
             label.textAlignment = alignment
             label.numberOfLines = 0

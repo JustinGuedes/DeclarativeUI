@@ -9,6 +9,15 @@
 import UIKit
 import DeclarativeUI
 
+protocol TestViewModel {
+    
+    var title: Property<String?> { get set }
+    var buttonEnabled: Property<Bool> { get set }
+    
+    func tappedLogin()
+    
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -31,20 +40,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        let viewModel = ViewModel()
-//        let elements: [ContentElement] = [
-//            .label(ofType: .title1, text: "Hello World!", alignment: .center, keyPath: \ViewModel.title),
-//            .verticalSpace(20),
-//            .label(ofType: .body, text: "This is the body text!", alignment: .justified),
-//            .textField(withPlaceholder: "Username"),
-//            .textField(withPlaceholder: "Password"),
-//            .flexibleSpace,
-//            .button(ofType: .primary, withTitle: "Login", events:
-//                .onTap(viewModel.tappedLogin),
-//                .onEnable(\ViewModel.buttonEnabled)),
-//        ]
+        let viewModel = ViewModel()
+        let element: ContentElement<ViewModel> = .stackView(with: [
+            .label(ofStyle: .title, text: "Hello World!", alignment: .center, keyPath: \ViewModel.title),
+            .verticalSpace(20),
+            .label(ofStyle: .body, text: "This is the body text!", alignment: .justified),
+            .textField(withPlaceholder: "Username"),
+            .textField(withPlaceholder: "Password"),
+            .flexibleSpace,
+            .button(ofStyle: .primary, withTitle: "Login", events:
+                .onTap(ViewModel.tappedLogin),
+                .onEnable(\ViewModel.buttonEnabled)),
+        ])
         
-//        let viewController = UIViewController(viewModel: viewModel, elements: elements)
+        let viewController = UIViewController(viewModel: viewModel, element: element)
         
         window?.rootViewController = Navigator.shared.navigationController
         Navigator.shared.navigate(toViewController: Storyboard.main)
