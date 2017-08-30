@@ -13,6 +13,7 @@ public extension ContentElement {
             let property = _Property<String?>(get: { label.text }, set: { newText in label.text = newText })
             label.text = text
             label.textAlignment = alignment
+            label.numberOfLines = 0
             var instance = viewModel
             instance[keyPath: keyPath] = property
             return (label, [])
